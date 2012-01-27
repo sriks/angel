@@ -1,0 +1,638 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><link media="all" href="rhythmbox-client_files/widget48.css" type="text/css" rel="stylesheet">
+
+
+<title>Manual Linux - rhythmbox-client - controls a running instance of rhythmbox</title>
+<meta name="robots" content="index, follow">
+<meta http-equiv="Cache-Control" content="public">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="pl-PL,en-US">
+<meta name="description" content="rhythmbox-client controls a running instance of rhythmbox">
+<meta name="keywords" content="track,artist,album,rhythmbox,playback,volume,play,print,playing,options,song,lowercase,sortname,pause,title,%tn,uri,client,format,instance,%aa,queue,previous,tracks,%an,currently,jump,%ta,specified,%tt,name">
+<link rel="stylesheet" href="rhythmbox-client_files/jquery-ui.css" type="text/css" media="screen">
+
+<script type="text/javascript" src="rhythmbox-client_files/jquery.js"></script>
+<script type="text/javascript" src="rhythmbox-client_files/jquery-ui.js"></script>
+
+
+<script type="text/javascript" src="rhythmbox-client_files/jqModal.js"></script>
+<script type="text/javascript" src="rhythmbox-client_files/fu.js"></script>
+<script type="text/javascript" src="rhythmbox-client_files/jq.js"></script>
+<link href="rhythmbox-client_files/jqModal.css" media="screen" rel="stylesheet" type="text/css">
+<link href="rhythmbox-client_files/main_v3.css" media="screen" rel="stylesheet" type="text/css">
+<link href="http://www.digipedia.pl/favicon.ico" rel="shortcut icon">
+</head><body onload="checkMFrames();"><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000;"><iframe src="rhythmbox-client_files/sh28.html" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border: 0pt none; left: 0pt; top: 0pt;" id="_atssh512"></iframe></div>
+<div id="wrapper">
+	<div id="top_bar"></div>
+	<div id="breadcrumbs">
+		<p><a href="http://www.digipedia.pl/">Digipedia.pl</a> » <a href="http://www.digipedia.pl/man/">Manual Linux</a> » <a>rhythmbox-client (1)</a></p>
+	</div>
+	<div id="header">
+		<div id="header-box">
+
+
+			<div id="header-calen">
+				
+			</div>
+
+
+			<div id="header-search">
+				<div id="header-s-left"></div>
+				<div id="header-s-middle">
+					<form id="sform" action="/search/index/" method="get" style="margin: 0px;" onsubmit="javascript:ssform2();return false;">
+					<div class="search-input">
+						<input id="sformq" class="seq" name="q" size="13" maxlength="50" type="text">
+						<input name="cx" value="" type="hidden">
+						<input name="cof" value="FORID:9" type="hidden">
+						<input name="ie" value="UTF-8" type="hidden">
+					</div>
+					<div class="search-input">
+						<select id="sformw" class="sew" name="w">
+						<option value="">Wszędzie</option>
+						<option value="def">Słownik</option>
+						<option value="b">Księgarnia</option>
+						<option value="man" selected="selected">Manual Linux</option>
+						<option value="php">Podręcznik PHP</option>
+						<option value="pgsql">Manual PgSQL</option>
+						<option value="rfc">Baza RFC</option>
+						</select>
+					</div>
+					<div class="search-input">
+						<!--
+						<img type="image" name="sa" value="Szukaj" src="http://i.digipedia.pl/1/img/d2/szukaj.gif" width="70" height="19" border="0" alt="Szukaj"> 
+						-->
+						<a href="javascript:ssform2();"><img class="simg" src="rhythmbox-client_files/szukaj.gif" alt="szukaj" height="19" width="70"></a>
+						
+					</div>
+					</form>
+				</div>
+				<div id="header-s-right"></div>    
+			</div>
+		</div>
+
+		<div id="header_menu"><table class="t-tab" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="t-tab-start">&nbsp;</td><td class="t-tab-first-off"><a href="http://www.digipedia.pl/">index</a></td><td class="t-tab-off"><a href="http://www.digipedia.pl/calc/">Kalkulatory</a></td><td class="t-tab-off"><a href="http://www.digipedia.pl/pna/">PNA</a></td><td class="t-tab-off"><a href="http://www.digipedia.pl/ip/">Lokalizacja&nbsp;IP</a></td><td class="t-tab-off"><a href="http://www.digipedia.pl/mac/">Adres&nbsp;MAC</a></td><td class="t-tab-off"><a href="http://www.digipedia.pl/def/">Słownik</a></td><td class="t-tab-off"><a href="http://www.digipedia.pl/b/">Księgarnia</a></td><td class="t-tab-on"><a href="http://www.digipedia.pl/man/">Manual&nbsp;Linux</a></td><td class="t-tab-off"><a href="http://www.digipedia.pl/php/manual/view/">Podręcznik&nbsp;PHP</a></td><td class="t-tab-off"><a href="http://www.digipedia.pl/pgsql/9.0/index.html">Manual&nbsp;PgSQL</a></td><td class="t-tab-off"><a href="http://www.digipedia.pl/rfc/">RFC</a></td><td class="t-tab-end">&nbsp;</td></tr></tbody></table></div>
+
+	</div>
+
+	
+	
+
+
+
+
+	<div id="middle">
+
+
+
+		<div id="left_menu">
+
+
+
+
+<ul class="lmenu0"><li><a href="http://www.digipedia.pl/man/random/">Losowy dokument</a></li><li><a href="http://www.digipedia.pl/search/man/">Popularne wyszukiwania</a></li></ul><ul class="lmenu0"><li>Sąsiednie&nbsp;<span><img style="cursor: pointer;" id="icon_drtyuiokck398" src="rhythmbox-client_files/mframe_folded.png" onclick="toggleMFrame('drtyuiokck398')" alt="-" hspace="0" vspace="0"></span></li></ul><div class="expanded" id="mframe_drtyuiokck398"><ul class="lmenu1"><li><a href="http://www.digipedia.pl/man/doc/view/rhona.1/">rhona(1)</a></li><li><a href="http://www.digipedia.pl/man/doc/view/rhoptimize.1/">rhoptimize(1)</a></li><li><a href="http://www.digipedia.pl/man/doc/view/r.horizon.1grass/">r.horizon(1g...)</a></li><li><a href="http://www.digipedia.pl/man/doc/view/rhost.1/">rhost(1)</a></li><li><a href="http://www.digipedia.pl/man/doc/view/rhosts.5/">rhosts(5)</a></li><li><a href="http://www.digipedia.pl/man/doc/view/rhpict.1/">rhpict(1)</a></li><li><a href="http://www.digipedia.pl/man/doc/view/rhyme.1/">rhyme(1)</a></li><li><a href="http://www.digipedia.pl/man/doc/view/rhyme.1sr/">rhyme(1sr)</a></li><li><a href="http://www.digipedia.pl/man/doc/view/rhythmbox.1/">rhythmbox(1)</a></li><li><a href="http://www.digipedia.pl/man/doc/view/rhythmbox-client.1/">rhythmbox-client(1)</a></li><li><a href="http://www.digipedia.pl/man/doc/view/ri.1/">ri(1)</a></li><li><a href="http://www.digipedia.pl/man/doc/view/ri1.8.1/">ri1.8(1)</a></li><li><a href="http://www.digipedia.pl/man/doc/view/ri1.9.1/">ri1.9(1)</a></li><li><a href="http://www.digipedia.pl/man/doc/view/ri1.9.1.1/">ri1.9.1(1)</a></li><li><a href="http://www.digipedia.pl/man/doc/view/ribbon.1/">ribbon(1)</a></li><li><a href="http://www.digipedia.pl/man/doc/view/riched20.3w/">riched20(3w)</a></li><li><a href="http://www.digipedia.pl/man/doc/view/riched32.3w/">riched32(3w)</a></li></ul></div><ul class="lmenu0"><li>Sekcje&nbsp;<span><img style="cursor: pointer;" id="icon_47wokcmhgree3" src="rhythmbox-client_files/mframe_folded.png" onclick="toggleMFrame('47wokcmhgree3')" alt="-" hspace="0" vspace="0"></span></li></ul><div class="expanded" id="mframe_47wokcmhgree3"><ul class="lmenu1"><li class="p1"><a href="http://www.digipedia.pl/man/section/view/0p/">0p</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/1/">1</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/1B/">1B</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/1e/">1e</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/1fun/">1fun</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/1gmt/">1gmt</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/1grass/">1grass</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/1gv/">1gv</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/1nas/">1nas</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/1p/">1p</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/1posix/">1posix</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/1sr/">1sr</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/1ssl/">1ssl</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/1x/">1x</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/2/">2</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/2freebsd/">2freebsd</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3/">3</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3alleg/">3alleg</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3aolserver/">3aolserver</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3B/">3B</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3blt/">3blt</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3bobcat/">3bobcat</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3caca/">3caca</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3cc/">3cc</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3curses/">3curses</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3cxx/">3cxx</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3diet/">3diet</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3el/">3el</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3erl/">3erl</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3form/">3form</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3gdbm/">3gdbm</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3iv/">3iv</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3iwidget/">3iwidget</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3iwidgets/">3iwidgets</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3kaya/">3kaya</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3lapack/">3lapack</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3m17n/">3m17n</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3menu/">3menu</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3nas/">3nas</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3ncurses/">3ncurses</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3o/">3o</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3p/">3p</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3pcap/">3pcap</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3perl/">3perl</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3plplot/">3plplot</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3pm/">3pm</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3posix/">3posix</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3pub/">3pub</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3PVM/">3PVM</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3qt/">3qt</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3snmp/">3snmp</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3ssl/">3ssl</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3stap/">3stap</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3t/">3t</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3tcl/">3tcl</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3tclx/">3tclx</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3thr/">3thr</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3tiff/">3tiff</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3tix/">3tix</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3tk/">3tk</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3trf/">3trf</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3w/">3w</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3x/">3x</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/3Xp/">3Xp</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/4/">4</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/4freebsd/">4freebsd</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/5/">5</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/5f/">5f</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/6/">6</a></li><li class="p1"><a href="http://www.digipedia.pl/man/section/view/6x/">6x</a></li></ul></div><div style="margin: 18px;">
+
+			
+<div id="book_icon">
+			<p class="drop_percent">30% TANIEJ!</p>
+		<a href="http://www.digipedia.pl/b/d/isbn/9788324627202/title/Joomla-Biblia/">
+		<img src="rhythmbox-client_files/9788324627202thm.jpg" alt="Joomla! Biblia" border="0">
+	</a>
+	<p><a href="http://www.digipedia.pl/b/d/isbn/9788324627202/title/Joomla-Biblia/">Joomla! Biblia</a></p>
+			<p><span class="price_new">69.30&nbsp;zł</span>
+		&nbsp;&nbsp;<span class="price_old">99.00&nbsp;zł</span></p>
+	</div>	</div><div style="clear: both;"></div><div id="ads_left">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0505033253648955";
+/* digipedia left 180x150, utworzono 10-03-12 */
+google_ad_slot = "8080100341";
+google_ad_width = 180;
+google_ad_height = 150;
+//-->
+</script>
+<script type="text/javascript" src="rhythmbox-client_files/show_ads.js">
+</script><script src="rhythmbox-client_files/show_ads_impl.js"></script><script src="rhythmbox-client_files/expansion_embed.js"></script><script src="rhythmbox-client_files/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="display: inline-table; border: medium none; height: 150px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 180px;"><ins id="google_ads_frame1_anchor" style="display: block; border: medium none; height: 150px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 180px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame" src="rhythmbox-client_files/ads.html" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" frameborder="0" height="150" width="180" scrolling="no"></iframe></ins></ins>
+</div></div>
+
+
+
+
+		<div id="center">
+			<div id="ads_top">
+				
+<script type="text/javascript"><!--
+google_ad_client = "pub-0505033253648955";
+/* digipedia top 728x90, utworzono 10-03-12 */
+google_ad_slot = "6158014947";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="rhythmbox-client_files/show_ads.js">
+</script><script src="rhythmbox-client_files/show_ads_impl.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="display: inline-table; border: medium none; height: 90px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 728px;"><ins id="google_ads_frame2_anchor" style="display: block; border: medium none; height: 90px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 728px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame2" marginheight="0" marginwidth="0" name="google_ads_frame" src="rhythmbox-client_files/ads_002.html" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" frameborder="0" height="90" width="728" scrolling="no"></iframe></ins></ins>
+
+
+
+			
+
+			</div>
+			<div id="content">
+<div style="width: 468px; margin: 0pt auto;">
+<a href="http://helion.pl/page/1040k/katalog/208,0,0,2,0,0.html.htm" target="_blank"><img src="rhythmbox-client_files/468x60_hel.gif"></a>
+</div>
+
+					<div style="float: right;">
+					<!-- AddThis Button BEGIN -->
+					<a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4b963e3e155521ce"><img src="rhythmbox-client_files/lg-addthis-en.gif" alt="Bookmark and Share" style="border: 0pt none;" height="16" width="125"></a><script type="text/javascript" src="rhythmbox-client_files/addthis_widget.js"></script>
+					<!-- AddThis Button END -->
+					</div>
+                    <div style="clear: both;"></div>
+
+
+
+
+
+
+
+        
+
+
+
+        <h1>rhythmbox-client (1)</h1>
+<div class="hline"></div>
+
+
+
+
+<h2><a name="sect0">Name</a></h2>
+
+<p>
+rhythmbox-client - controls a running instance of rhythmbox
+
+</p><p>
+</p><h2><a name="sect1"><b>Synopsis</b></a></h2>
+
+<p>
+<b>rhythmbox-client</b> [<i>option...</i>]
+
+</p><p>
+</p><h2><a name="sect2"><b>Description</b></a></h2>
+
+<p>
+<b>rhythmbox-client</b> is a tool for controlling an already running instance
+of <b>rhythmbox.</b> It’s useful for remote control scripting or printing
+details of what’s playing.
+
+</p><p>
+</p><h2><a name="sect3"><b>Options</b></a></h2>
+
+<p>
+<b>-?,--help</b><br>
+
+Show help options
+
+</p><p>
+</p><dl>
+
+<dt><b>--debug</b></dt>
+<dd>
+Enable debug output
+
+<p>
+
+</p></dd><dt><b>--no-start</b></dt>
+<dd>
+Do not start a new instance of rhythmbox
+
+<p>
+
+</p></dd><dt><b>--quit</b> Quit rhythmbox</dt>
+<dd>
+
+<p>
+
+</p></dd><dt><b>--no-present</b></dt>
+<dd>
+Don’t present an existing rhythmbox window
+
+<p>
+
+</p></dd><dt><b>--hide</b> Hide the rhythmbox window</dt>
+<dd>
+
+<p>
+
+</p></dd><dt><b>--next</b> Jump to next song</dt>
+<dd>
+
+<p>
+
+</p></dd><dt><b>--previous</b></dt>
+<dd>
+Jump to previous song
+
+<p>
+
+</p></dd><dt><b>--notify</b></dt>
+<dd>
+Show notification of the playing song
+
+<p>
+
+</p></dd><dt><b>--play</b> Resume playback if currently paused</dt>
+<dd>
+
+<p>
+
+</p></dd><dt><b>--pause</b></dt>
+<dd>
+Pause playback if currently playing
+
+<p>
+
+</p></dd><dt><b>--play-pause</b></dt>
+<dd>
+Toggle play/pause mode
+
+<p>
+
+</p></dd><dt><b>--play-uri=</b><i>URI</i></dt>
+<dd>
+Play a specified URI, importing it if necessary
+
+<p>
+
+</p></dd><dt><b>--enqueue</b> <i>filename</i></dt>
+<dd>
+Add specified tracks already in the library to the play queue
+
+<p>
+
+</p></dd><dt><b>--clear-queue</b></dt>
+<dd>
+Empty the play queue before adding new tracks
+
+<p>
+
+</p></dd><dt><b>--print-playing</b></dt>
+<dd>
+Print the title and artist of the playing song
+
+<p>
+
+</p></dd><dt><b>--print-playing-format</b></dt>
+<dd>
+Print formatted details of the song
+
+<p>
+
+</p></dd><dt><b>--set-volume</b></dt>
+<dd>
+Set the playback volume
+
+<p>
+
+</p></dd><dt><b>--volume-up</b></dt>
+<dd>
+Increase the playback volume
+
+<p>
+
+</p></dd><dt><b>--volume-down</b></dt>
+<dd>
+Decrease the playback volume
+
+<p>
+
+</p></dd><dt><b>--print-volume</b></dt>
+<dd>
+Print the current playback volume
+
+<p>
+
+</p></dd><dt><b>--mute</b> Mute playback</dt>
+<dd>
+
+<p>
+
+</p></dd><dt><b>--unmute</b></dt>
+<dd>
+Unmute playback
+
+<p>
+</p></dd></dl>
+
+<h2><a name="sect4"><b>Format</b> <b>Options</b></a></h2>
+
+
+<dl>
+
+<dt>%at </dt>
+<dd>   album title
+
+<p>
+
+</p></dd><dt>%aa </dt>
+<dd>   album artist
+
+<p>
+
+</p></dd><dt>%aA </dt>
+<dd>   album artist (lowercase)
+
+<p>
+
+</p></dd><dt>%as </dt>
+<dd>   album artist sortname
+
+<p>
+
+</p></dd><dt>%aS </dt>
+<dd>   album artist sortname (lowercase)
+
+<p>
+
+</p></dd><dt>%ay </dt>
+<dd>   album year
+
+<p>
+
+</p></dd><dt>%ag </dt>
+<dd>   album genre
+
+<p>
+
+</p></dd><dt>%aG </dt>
+<dd>   album genre (lowercase)
+
+<p>
+
+</p></dd><dt>%an </dt>
+<dd>   album disc number
+
+<p>
+
+</p></dd><dt>%aN </dt>
+<dd>   album disc number, zero padded
+
+<p>
+
+</p></dd><dt>%tn </dt>
+<dd>   track number (i.e 8)
+
+<p>
+
+</p></dd><dt>%tN </dt>
+<dd>   track number, zero padded (i.e 08)
+
+<p>
+
+</p></dd><dt>%tt </dt>
+<dd>   track title
+
+<p>
+
+</p></dd><dt>%ta </dt>
+<dd>   track artist
+
+<p>
+
+</p></dd><dt>%tA </dt>
+<dd>   track artist (lowercase)
+
+<p>
+
+</p></dd><dt>%ts </dt>
+<dd>   track artist sortname
+
+<p>
+
+</p></dd><dt>%tS </dt>
+<dd>   track artist sortname (lowercase)
+
+<p>
+
+</p></dd><dt>%td </dt>
+<dd>   track duration
+
+<p>
+
+</p></dd><dt>%te </dt>
+<dd>   track elapsed time
+
+<p>
+</p></dd></dl>
+<p>
+Variables can be combined using quotes. For example “%tn %aa %tt", will
+print the track number followed by the artist and the title of the
+track.
+
+</p><p>
+</p><h2><a name="sect5"><b>Author</b></a></h2>
+
+<p>
+This manual page was written by Sven Arvidsson &lt;sa@whiz.se&gt;, for the
+Debian system (but may be used by others).
+
+</p><p>
+</p><h2><a name="sect6"><b>See</b> <b>Also</b></a></h2>
+
+<p>
+<a href="http://www.digipedia.pl/man/doc/view/rhythmbox.1/">rhythmbox(1)</a>
+.
+</p><p>
+
+</p><hr><p>
+<a name="toc"><b>Table of Contents</b></a></p><p>
+</p><ul>
+<li><a name="toc0" href="#sect0">Name</a></li>
+<li><a name="toc1" href="#sect1">Synopsis</a></li>
+<li><a name="toc2" href="#sect2">Description</a></li>
+<li><a name="toc3" href="#sect3">Options</a></li>
+<li><a name="toc4" href="#sect4">Format Options</a></li>
+<li><a name="toc5" href="#sect5">Author</a></li>
+<li><a name="toc6" href="#sect6">See Also</a></li>
+</ul>
+
+
+
+
+<div style="height: 20px;"></div>
+
+
+			<div style="margin: 10px; width: 46%; float: left;">
+			<div class="box3">
+			<h4>Popularne</h4>
+			<ul class="box3a">
+		<li><a href="http://www.digipedia.pl/man/doc/view/udhcpc.8/">udhcpc (8)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/sshfs.1/">sshfs (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/wget.1/">wget (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/adduser.8/">adduser (8)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/bash.1/">bash (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/ifconfig.8/">ifconfig (8)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/interfaces.5/">interfaces (5)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/route.8/">route (8)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/sed.1/">sed (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/grep.1/">grep (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/find.1/">find (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/fsck.8/">fsck (8)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/top.1/">top (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/a2enmod.8/">a2enmod (8)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/ls.1/">ls (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/iperf.1/">iperf (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/crontab.5/">crontab (5)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/netstat.8/">netstat (8)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/ps.1/">ps (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/fork.2/">fork (2)</a></li>
+			</ul>
+		</div>
+		</div>
+	
+
+
+			<div style="margin: 10px; width: 46%; float: left;">
+			<div class="box3">
+			<h4>Losowe</h4>
+			<ul class="box3a">
+		<li><a href="http://www.digipedia.pl/man/doc/view/zposvx.3/">zposvx (3)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/th-match-filter-text.1/">th-match-filter-text (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/driver_entry.3erl/">driver_entry (3erl)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/tty_write_message.9/">tty_write_message (9)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/gpgsm-gencert.sh.1/">gpgsm-gencert.sh (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/VFS_QUOTACTL.9freebsd/">VFS_QUOTACTL (9freebsd)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/tcp_driver_io.3/">tcp_driver_io (3)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/xtrapout.1/">xtrapout (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/gprocessor.1/">gprocessor (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/s3d_flags_off.3/">s3d_flags_off (3)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/creat.2freebsd/">creat (2freebsd)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/SSLeay_add_ssl_algorithms.3/">SSLeay_add_ssl_algorithms (3)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/anxrip.1/">anxrip (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/phylip.1/">phylip (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/MPI_File_write_all_begin.3/">MPI_File_write_all_begin (3)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/globus_gsi_gss_assist.3/">globus_gsi_gss_assist (3)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/msggrep.1/">msggrep (1)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/Text%3A%3AMicroMason%3A%3ACache%3A%3ANull.3pm/">Text::MicroMason::Cache::Null (3pm)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/cgi_session_register_var.3/">cgi_session_register_var (3)</a></li>
+			<li><a href="http://www.digipedia.pl/man/doc/view/editrc.5/">editrc (5)</a></li>
+			</ul>
+		</div>
+		</div>
+	
+
+
+
+
+
+        
+<div style="clear: both;"></div>
+
+
+
+<h3>Książki warte uwagi</h3>
+<div class="hline"></div>
+
+
+<div style="overflow: hidden;" class="sc_menu">
+	<ul class="sc_menu">
+
+	<li><a href="http://www.digipedia.pl/b/d/isbn/9788324600656/title/100-sposobow-na-Linux/"><img class="b_box_img" src="rhythmbox-client_files/9788324600656thm.jpg" alt="100 sposobów na Linux"></a></li>
+
+
+	<li><a href="http://www.digipedia.pl/b/d/isbn/9788324604098/title/SUSE-Linux-10-Ksiega-eksperta/"><img class="b_box_img" src="rhythmbox-client_files/9788324604098thm.jpg" alt="SUSE Linux 10. Księga eksperta"></a></li>
+
+
+	<li><a href="http://www.digipedia.pl/b/d/isbn/9788324600557/title/Slackware-Linux/"><img class="b_box_img" src="rhythmbox-client_files/9788324600557thm.jpg" alt="Slackware Linux"></a></li>
+
+
+	<li><a href="http://www.digipedia.pl/b/d/isbn/9788373613058/title/ABC-Linux/"><img class="b_box_img" src="rhythmbox-client_files/9788373613058thm.jpg" alt="ABC Linux"></a></li>
+
+
+	<li><a href="http://www.digipedia.pl/b/d/isbn/9788324607488/title/Linux-Rozmowki/"><img class="b_box_img" src="rhythmbox-client_files/9788324607488thm.jpg" alt="Linux. Rozmówki"></a></li>
+
+
+	<li><a href="http://www.digipedia.pl/b/d/isbn/9788324604050/title/Multimedia-w-Linuksie-Praktyczne-rozwiazania/"><img class="b_box_img" src="rhythmbox-client_files/9788324604050thm.jpg" alt="Multimedia w Linuksie. Praktyczne rozwiązania"></a></li>
+
+
+	<li><a href="http://www.digipedia.pl/b/d/isbn/9788373619944/title/Linux-Komendy-i-polecenia-Praktyczne-przyklady/"><img class="b_box_img" src="rhythmbox-client_files/9788373619944thm.jpg" alt="Linux. Komendy i polecenia. Praktyczne przykłady"></a></li>
+
+
+	<li><a href="http://www.digipedia.pl/b/d/isbn/9788373612495/title/Linux-Bezpieczenstwo-Receptury/"><img class="b_box_img" src="rhythmbox-client_files/9788373612495thm.jpg" alt="Linux. Bezpieczeństwo. Receptury"></a></li>
+
+
+	<li><a href="http://www.digipedia.pl/b/d/isbn/9788371974953/title/Zaawansowane-programowanie-w-systemie-Linux/"><img class="b_box_img" src="rhythmbox-client_files/9788371974953thm.jpg" alt="Zaawansowane programowanie w systemie Linux"></a></li>
+
+
+	<li><a href="http://www.digipedia.pl/b/d/isbn/9788324600069/title/Fotografia-cyfrowa-Edycja-zdjec-w-Linuksie/"><img class="b_box_img" src="rhythmbox-client_files/9788324600069thm.jpg" alt="Fotografia cyfrowa. Edycja zdjęć w Linuksie"></a></li>
+
+
+	<li><a href="http://www.digipedia.pl/b/d/isbn/9788324606368/title/Linux-Komendy-i-polecenia-Wydanie-II/"><img class="b_box_img" src="rhythmbox-client_files/9788324606368thm.jpg" alt="Linux. Komendy i polecenia. Wydanie II"></a></li>
+
+
+	<li><a href="http://www.digipedia.pl/b/d/isbn/9788373613676/title/Mandrake-Linux/"><img class="b_box_img" src="rhythmbox-client_files/9788373613676thm.jpg" alt="Mandrake Linux"></a></li>
+
+	</ul>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</div>
+
+
+		<div id="ads_bottom">
+
+			
+<script type="text/javascript"><!--
+google_ad_client = "pub-0505033253648955";
+/* digipedia bottom 728x90, utworzono 10-03-12 */
+google_ad_slot = "9155356381";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="rhythmbox-client_files/show_ads.js">
+</script><script src="rhythmbox-client_files/show_ads_impl.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="display: inline-table; border: medium none; height: 90px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 728px;"><ins id="google_ads_frame3_anchor" style="display: block; border: medium none; height: 90px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 728px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame3" marginheight="0" marginwidth="0" name="google_ads_frame" src="rhythmbox-client_files/ads_003.html" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" frameborder="0" height="90" width="728" scrolling="no"></iframe></ins></ins>
+			
+
+		</div>
+
+		
+
+		</div>
+	    </div>
+		<div id="footer">
+
+			<div id="footer-bbar-4"></div>
+			<div id="footer-navbar">
+					<a class="sl" href="http://www.digipedia.pl/article/view/id/1/name/nota+prawna/">Nota prawna</a>
+					&nbsp; | &nbsp;<a class="sl" href="http://www.digipedia.pl/index/formail/title/kontakt/">Kontakt</a>
+					&nbsp; | &nbsp;<a class="sl" href="http://www.digipedia.pl/index/formail/title/bug/">Zgłoś błąd</a>
+			</div>
+			<div id="footer-bbar-1"></div>
+			<div id="footer-copy">
+				Serwis zawiera materiały chronione prawami własności intelektualnej w szczególności prawem autorskim.<br>
+				Kopiowanie, rozpowszechnianie, dystrybucja oraz zmiany w kodzie zródłowym zawartości niezależnie od formy jest zabronione.<br>
+				Znaki towarowe innych podmiotów zostały umieszczone jedynie w celach informacyjnych.<br>
+				© 2001-2010 digipedia.pl
+			</div>
+		</div>
+</div>
+
+
+
+
+<div id="ContactButton" style="position: fixed; top: 220px; right: -10px;"><a href="http://www.digipedia.pl/index/formail/" class="ex2trigger"><img style="cursor: pointer;" src="rhythmbox-client_files/m.png" border="0"></a></div>
+
+
+
+
+</body></html>

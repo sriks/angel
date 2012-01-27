@@ -1,0 +1,36 @@
+<commands player="winamp" command="clamp ">
+
+<operation id="play">
+<option>/play</option>
+</operation>
+
+<operation id="pause">
+<option>/pause</option>
+</operation>
+
+<operation id="trackduration">
+<option>/trackinfo length</option>
+</operation>
+
+<operation id="trackposition">
+<option>/trackinfo pos</option>
+</operation>
+
+<operation id="next">
+<option>/next</option>
+</operation>
+
+<operation id="prev">
+<option>/prev</option>
+</operation>
+
+<operation id="nowplaying">
+<option>/title</option>
+</operation>
+
+<operation id="quit">
+<option>/quit</option>
+</operation>
+
+</commands>
+

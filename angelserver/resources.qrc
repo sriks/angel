@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/xml">
+        <file>win_commands.xml</file>
+        <file>linux_commands.xml</file>
+    </qresource>
+</RCC>
